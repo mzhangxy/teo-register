@@ -22,7 +22,7 @@ jobs:
         with:
           repository: ${{ github.repository_owner }}/pingmike-teohe-auto
           token: ${{ secrets.PRIVATE_REPO_TOKEN }} 
-          path: private-repo
+          path: private
 
       # =========================
       # 🟡 Node 环境
@@ -94,7 +94,7 @@ jobs:
       - name: Run script
         run: |
           mkdir -p screenshots
-          xvfb-run -a node register.js
+          xvfb-run -a node private/register.js
 
       # =========================
       # 🟡 7️⃣ 上传截图
