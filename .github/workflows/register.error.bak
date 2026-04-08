@@ -25,6 +25,15 @@ jobs:
           path: private
 
       # =========================
+      # 🟡 将私有库文件移至根目录
+      # =========================
+      - name: Move private repo files to root
+        run: |
+          # 使用 cp -a 可以连同隐藏文件一起完美复制到根目录，然后删掉空文件夹
+          cp -a private/. ./
+          rm -rf private
+      
+      # =========================
       # 🟡 Node 环境
       # =========================
       - uses: actions/setup-node@v4
